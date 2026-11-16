@@ -1,0 +1,862 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Planet Needs Us 🌍</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f7faf5;
+    color: #294b38;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px #23452c10;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #287447;
+}
+
+nav a {
+    text-decoration: none;
+    color: #496b54;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #75a87c;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    background: linear-gradient(135deg, #dcefdc, #eff7e9, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.tag {
+    display: inline-block;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #47865a;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.1;
+    color: #235438;
+}
+
+.hero h1 span {
+    color: #65a875;
+}
+
+.hero p {
+    color: #647c68;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 25px auto;
+    font-size: 16px;
+}
+
+.hero-emoji {
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #377c4e;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #245b38;
+    transform: translateY(-3px);
+}
+
+/* SECTIONS */
+
+section {
+    padding: 80px 9%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    color: #2c5c3d;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #829385;
+    line-height: 1.8;
+    margin-bottom: 45px;
+}
+
+/* ENVIRONMENTAL ISSUES */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 22px;
+    transition: 0.3s;
+    background: white;
+    box-shadow: 0 5px 20px #264b3210;
+    border: 1px solid #e6eee5;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card:nth-child(2) {
+    background: #edf5e9;
+}
+
+.card:nth-child(3) {
+    background: #e5f1e8;
+}
+
+.card .emoji {
+    font-size: 42px;
+}
+
+.card h3 {
+    margin: 18px 0 12px;
+    color: #39734b;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #728276;
+}
+
+/* QUOTE */
+
+.quote {
+    background: #275b3c;
+    padding: 75px 20px;
+    text-align: center;
+    color: white;
+}
+
+.quote h2 {
+    max-width: 750px;
+    margin: auto;
+    font-size: 32px;
+    line-height: 1.5;
+}
+
+.quote p {
+    margin-top: 20px;
+    color: #c6e2c9;
+}
+
+/* SMALL ACTIONS */
+
+.actions {
+    background: #eff6ed;
+}
+
+.action-box {
+    background: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #23452c10;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px 5px;
+    border-bottom: 1px solid #edf1eb;
+    color: #496b54;
+}
+
+.action-item input {
+    accent-color: #44845a;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.progress {
+    width: 100%;
+    height: 12px;
+    background: #e8eee6;
+    border-radius: 20px;
+    margin: 20px 0 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #6eaa79;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.progress-text {
+    color: #558263;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* CHALLENGE */
+
+.challenge {
+    max-width: 650px;
+    margin: auto;
+    background: #e2f0df;
+    padding: 40px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.challenge h3 {
+    font-size: 25px;
+    color: #347148;
+}
+
+.challenge-text {
+    margin: 25px 0;
+    font-size: 20px;
+    line-height: 1.6;
+    min-height: 65px;
+}
+
+/* QUIZ */
+
+.quiz {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 5px 25px #23452c12;
+}
+
+.quiz h3 {
+    color: #39734b;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    background: #f2f7f0;
+    border: 1px solid #e2ebdf;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    color: #496b54;
+    font-size: 15px;
+}
+
+.option:hover:not(:disabled) {
+    background: #dceedd;
+}
+
+.option:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+#result {
+    margin: 20px 0;
+    color: #398052;
+    line-height: 1.6;
+}
+
+#nextButton {
+    display: none;
+}
+
+/* PLEDGE */
+
+.pledge {
+    background: #e0efdf;
+    text-align: center;
+}
+
+.pledge p {
+    max-width: 600px;
+    margin: 20px auto 30px;
+    line-height: 1.8;
+    color: #647c68;
+}
+
+#pledgeMessage {
+    margin-top: 25px;
+    font-size: 18px;
+    color: #347148;
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 40px 20px;
+    background: #214c33;
+    color: white;
+    text-align: center;
+    line-height: 2;
+}
+
+footer p {
+    color: #c5ddc8;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 12px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .hero {
+        min-height: 480px;
+    }
+
+    .action-box, .quiz, .challenge {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">🌿 The Planet Needs Us</div>
+
+    <div>
+        <a href="#about">About</a>
+        <a href="#actions">Take Action</a>
+        <a href="#challenge">Challenge</a>
+        <a href="#quiz">Quiz</a>
+    </div>
+</nav>
+
+
+<!-- HERO SECTION -->
+
+<header class="hero">
+    <div class="hero-content">
+
+        <div class="hero-emoji">🌍</div>
+
+        <div class="tag">
+            ONE PLANET. ONE CHANCE. ONE RESPONSIBILITY.
+        </div>
+
+        <h1>
+            The Planet <span>Needs Us.</span>
+        </h1>
+
+        <p>
+            Our planet gives us everything we need to live.
+            Clean air, fresh water, beautiful forests and wildlife.
+            But who is taking care of our planet?
+            It's time we give something back.
+        </p>
+
+        <a href="#about">
+            <button class="btn">Explore the mission ↓</button>
+        </a>
+
+    </div>
+</header>
+
+
+<!-- ENVIRONMENTAL ISSUES -->
+
+<section id="about">
+
+    <h2 class="section-title">Our Planet Is Calling</h2>
+
+    <p class="subtitle">
+        Every day, our environment faces challenges.
+        Understanding them is the first step towards change.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="emoji">🌡️</div>
+            <h3>Climate Change</h3>
+            <p>
+                Rising global temperatures are changing weather
+                patterns, melting glaciers and threatening
+                ecosystems around the world.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🌳</div>
+            <h3>Deforestation</h3>
+            <p>
+                Cutting down forests destroys wildlife habitats,
+                reduces biodiversity and affects the natural
+                balance of our environment.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🏭</div>
+            <h3>Pollution</h3>
+            <p>
+                Air, water and land pollution harm living beings.
+                Plastic waste and harmful emissions make the
+                environmental crisis worse.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- QUOTE -->
+
+<div class="quote">
+
+    <h2>
+        "The Earth is what we all have in common."
+    </h2>
+
+    <p>— Wendell Berry</p>
+
+</div>
+
+
+<!-- TAKE ACTION -->
+
+<section class="actions" id="actions">
+
+    <h2 class="section-title">Small Steps, Big Impact 🌱</h2>
+
+    <p class="subtitle">
+        You don't need to change the whole world in one day.
+        Start with these simple everyday habits.
+    </p>
+
+    <div class="action-box">
+
+        <h3>My Eco-Friendly Checklist</h3>
+
+        <p style="color:#829385; margin-top:10px;">
+            Tick the habits you are willing to practise.
+        </p>
+
+        <label class="action-item">
+            <input type="checkbox" class="eco-check">
+            Carry a reusable water bottle.
+        </label>
+
+        <label class="action-item">
+            <input type="checkbox" class="eco-check">
+            Switch off unnecessary lights.
+        </label>
+
+        <label class="action-item">
+            <input type="checkbox" class="eco-check">
+            Avoid single-use plastic.
+        </label>
+
+        <label class="action-item">
+            <input type="checkbox" class="eco-check">
+            Use public transport when practical.
+        </label>
+
+        <label class="action-item">
+            <input type="checkbox" class="eco-check">
+            Save water whenever possible.
+        </label>
+
+        <label class="action-item">
+            <input type="checkbox" class="eco-check">
+            Separate waste for proper recycling.
+        </label>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <p class="progress-text" id="progressText">
+            0 of 6 habits selected 🌿
+        </p>
+
+    </div>
+</section>
+
+
+<!-- DAILY CHALLENGE -->
+
+<section id="challenge">
+
+    <h2 class="section-title">Your Eco Challenge</h2>
+
+    <p class="subtitle">
+        One little action can make a difference.
+        What will you do today?
+    </p>
+
+    <div class="challenge">
+
+        <h3>🌱 Today's Green Challenge</h3>
+
+        <div class="challenge-text" id="challengeText">
+            Refuse a single-use plastic bag today!
+        </div>
+
+        <button class="btn" onclick="newChallenge()">
+            Give me another challenge ↻
+        </button>
+
+    </div>
+</section>
+
+
+<!-- QUIZ -->
+
+<section id="quiz" style="background:#eff6ed;">
+
+    <h2 class="section-title">How Green Is Your Knowledge?</h2>
+
+    <p class="subtitle">
+        Take this little quiz and test your environmental knowledge!
+    </p>
+
+    <div class="quiz">
+
+        <h3 id="question">
+            Which of these is a renewable source of energy?
+        </h3>
+
+        <button class="option" onclick="checkAnswer(0)">
+            A. Coal
+        </button>
+
+        <button class="option" onclick="checkAnswer(1)">
+            B. Solar Energy
+        </button>
+
+        <button class="option" onclick="checkAnswer(2)">
+            C. Petroleum
+        </button>
+
+        <p id="result"></p>
+
+        <button class="btn" id="nextButton" onclick="nextQuestion()">
+            Next Question →
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PLEDGE -->
+
+<section class="pledge">
+
+    <h2 class="section-title">Make a Promise to Our Planet 💚</h2>
+
+    <p>
+        I promise to be more conscious of my actions,
+        protect nature, reduce waste and encourage
+        others to make environmentally responsible choices.
+        Because a better future starts with us.
+    </p>
+
+    <button class="btn" onclick="makePledge()">
+        I Pledge to Protect Earth 🌍
+    </button>
+
+    <div id="pledgeMessage"></div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>🌿 THE PLANET NEEDS US</h2>
+
+    <p>Protect Nature. Preserve Life. Secure Tomorrow.</p>
+
+    <p>Made with 💚 for a greener future.</p>
+
+    <p>© 2026 The Planet Needs Us</p>
+
+</footer>
+
+
+<script>
+
+// ECO-FRIENDLY CHECKLIST
+
+const checkboxes = document.querySelectorAll(".eco-check");
+
+function updateProgress() {
+
+    let completed = 0;
+
+    checkboxes.forEach(function(box) {
+        if(box.checked) {
+            completed++;
+        }
+    });
+
+    let percentage = (completed / checkboxes.length) * 100;
+
+    document.getElementById("progressBar").style.width =
+        percentage + "%";
+
+    document.getElementById("progressText").innerText =
+        completed + " of 6 habits selected 🌿";
+}
+
+checkboxes.forEach(function(box) {
+    box.addEventListener("change", updateProgress);
+});
+
+
+// DAILY ECO CHALLENGES
+
+const challenges = [
+    "Refuse a single-use plastic bag today! 🌿",
+    "Plant or care for a small plant! 🌱",
+    "Turn off lights when leaving a room! 💡",
+    "Carry your own reusable bottle! 💧",
+    "Avoid wasting food today! 🍎",
+    "Take a short walk instead of a car ride! 🚶",
+    "Learn about one endangered animal! 🐼",
+    "Spend some time cleaning your surroundings! 🌳"
+];
+
+function newChallenge() {
+
+    let randomIndex = Math.floor(
+        Math.random() * challenges.length
+    );
+
+    document.getElementById("challengeText").innerText =
+        challenges[randomIndex];
+
+}
+
+
+// ENVIRONMENTAL QUIZ
+
+const questions = [
+    {
+        question: "Which of these is a renewable source of energy?",
+        options: ["A. Coal", "B. Solar Energy", "C. Petroleum"],
+        answer: 1,
+        message: "Correct! Solar energy comes from the Sun and is renewable. ☀️"
+    },
+
+    {
+        question: "Which gas is a major contributor to human-caused global warming?",
+        options: ["A. Oxygen", "B. Helium", "C. Carbon Dioxide"],
+        answer: 2,
+        message: "Correct! Carbon dioxide is an important greenhouse gas. 🌍"
+    },
+
+    {
+        question: "What does the 3R principle stand for?",
+        options: [
+            "A. Reduce, Reuse, Recycle",
+            "B. Read, Repeat, Remember",
+            "C. Remove, Replace, Repair"
+        ],
+        answer: 0,
+        message: "Exactly! Reduce, Reuse and Recycle help minimise waste. ♻️"
+    },
+
+    {
+        question: "Which of these helps conserve water?",
+        options: [
+            "A. Leaving taps running",
+            "B. Fixing leaking taps",
+            "C. Washing cars every day"
+        ],
+        answer: 1,
+        message: "Well done! Fixing leaks helps prevent unnecessary water loss. 💧"
+    }
+];
+
+let currentQuestion = 0;
+
+function loadQuestion() {
+
+    let q = questions[currentQuestion];
+
+    document.getElementById("question").innerText =
+        q.question;
+
+    let buttons = document.querySelectorAll(".option");
+
+    buttons.forEach(function(button, index) {
+        button.innerText = q.options[index];
+        button.style.display = "block";
+        button.disabled = false;
+    });
+
+    document.getElementById("result").innerText = "";
+
+    document.getElementById("nextButton").style.display =
+        "none";
+}
+
+function checkAnswer(selected) {
+
+    let q = questions[currentQuestion];
+
+    if(selected === q.answer) {
+
+        document.getElementById("result").innerText =
+            q.message;
+
+    } else {
+
+        document.getElementById("result").innerText =
+            "Not quite! Give it another thought. 🌱";
+
+        return;
+    }
+
+    document.querySelectorAll(".option").forEach(function(button) {
+        button.disabled = true;
+    });
+
+    document.getElementById("nextButton").style.display =
+        "inline-block";
+}
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if(currentQuestion >= questions.length) {
+
+        document.getElementById("question").innerText =
+            "You've completed the Green Quiz! 🎉";
+
+        document.querySelectorAll(".option").forEach(function(button) {
+            button.style.display = "none";
+        });
+
+        document.getElementById("result").innerText =
+            "Amazing work! Keep learning and protecting our planet. 💚";
+
+        document.getElementById("nextButton").innerText =
+            "Play Again ↻";
+
+        document.getElementById("nextButton").onclick = function() {
+
+            currentQuestion = 0;
+
+            document.getElementById("nextButton").innerText =
+                "Next Question →";
+
+            document.getElementById("nextButton").onclick =
+                nextQuestion;
+
+            loadQuestion();
+        };
+
+        return;
+    }
+
+    loadQuestion();
+}
+
+
+// EARTH PLEDGE
+
+function makePledge() {
+
+    document.getElementById("pledgeMessage").innerText =
+        "🌍 Thank you! You're now part of the movement for a greener tomorrow! 💚";
+
+}
+
+</script>
+
+</body>
+</html>
